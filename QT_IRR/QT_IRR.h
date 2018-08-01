@@ -12,7 +12,14 @@ public:
 
 	QIrrlichtWidget* getIrrlichtWidget(){ return irrWidget; }
 
+protected slots:
+	void handleMayaButton();
+	void handleFpsButton();
+	void keyPressEvent(QKeyEvent* event);
+
 private:
     Ui::QT_IRRClass ui;
 	QIrrlichtWidget* irrWidget;
+
+
 };

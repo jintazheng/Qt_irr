@@ -13,10 +13,10 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
-#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QWidget>
@@ -28,8 +28,9 @@ class Ui_QT_IRRClass
 {
 public:
     QWidget *centralWidget;
-    QHBoxLayout *horizontalLayout;
     QIrrlichtWidget *irrWidget;
+    QPushButton *maya_cam;
+    QPushButton *fps_cam;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -38,22 +39,23 @@ public:
     {
         if (QT_IRRClass->objectName().isEmpty())
             QT_IRRClass->setObjectName(QStringLiteral("QT_IRRClass"));
-        QT_IRRClass->resize(1047, 858);
+        QT_IRRClass->resize(924, 858);
         centralWidget = new QWidget(QT_IRRClass);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
-        horizontalLayout = new QHBoxLayout(centralWidget);
-        horizontalLayout->setSpacing(6);
-        horizontalLayout->setContentsMargins(11, 11, 11, 11);
-        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        centralWidget->setEnabled(true);
         irrWidget = new QIrrlichtWidget(centralWidget);
         irrWidget->setObjectName(QStringLiteral("irrWidget"));
-
-        horizontalLayout->addWidget(irrWidget);
-
+        irrWidget->setGeometry(QRect(11, 11, 651, 631));
+        maya_cam = new QPushButton(centralWidget);
+        maya_cam->setObjectName(QStringLiteral("maya_cam"));
+        maya_cam->setGeometry(QRect(700, 30, 93, 28));
+        fps_cam = new QPushButton(centralWidget);
+        fps_cam->setObjectName(QStringLiteral("fps_cam"));
+        fps_cam->setGeometry(QRect(700, 70, 93, 28));
         QT_IRRClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(QT_IRRClass);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 1047, 26));
+        menuBar->setGeometry(QRect(0, 0, 924, 26));
         QT_IRRClass->setMenuBar(menuBar);
         mainToolBar = new QToolBar(QT_IRRClass);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -70,6 +72,8 @@ public:
     void retranslateUi(QMainWindow *QT_IRRClass)
     {
         QT_IRRClass->setWindowTitle(QApplication::translate("QT_IRRClass", "QT_IRR", Q_NULLPTR));
+        maya_cam->setText(QApplication::translate("QT_IRRClass", "f", Q_NULLPTR));
+        fps_cam->setText(QApplication::translate("QT_IRRClass", "f", Q_NULLPTR));
     } // retranslateUi
 
 };
